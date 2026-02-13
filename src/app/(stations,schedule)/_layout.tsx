@@ -27,12 +27,14 @@ const AppleStackPreset: NativeStackNavigationOptions =
       };
 
 export const unstable_settings = {
-  stations: { anchor: "stations" },
+  stations: { anchor: "index" },
   schedule: { anchor: "schedule" },
 };
 
 export default function SharedLayout({ segment }: { segment: string }) {
   const screen = segment.match(/\((.*)\)/)?.[1]!;
+
+  const anchor = screen === "stations" ? "index" : "schedule";
 
   const options = useMemo(() => {
     switch (screen) {
@@ -47,7 +49,7 @@ export default function SharedLayout({ segment }: { segment: string }) {
 
   return (
     <Stack screenOptions={{ ...AppleStackPreset, headerLargeTitle: false }}>
-      <Stack.Screen name={screen} options={options} />
+      <Stack.Screen name={anchor} options={options} />
     </Stack>
   );
 }

@@ -6,10 +6,6 @@ import {
   trips,
   getCurrentServiceType,
   ServiceType,
-  getRouteDisplayColor,
-  getRouteLabel,
-  getDirectionLabel,
-  formatTime,
 } from "@/data/caltrain";
 import useSearch from "@/hooks/use-search";
 import DepartureRow from "@/components/departure-row";
